@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: lightgray;
+        padding: 4px;
+      }
+      nav .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: gray;
+      }
+      nav .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      nav .menu li {
+        margin-left: 16px;
+      }
+      nav .menu li a {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: rgb(50, 50, 50);
+        position: relative;
+        transition: all 0.5s;
+      }
+
+      nav .menu li a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 16px;
+        width: 0;
+        height: 3px;
+        background-color: black;
+        transition: all 0.5s;
+      }
+      nav .menu li a:hover {
+        color: rgb(0, 0, 0);
+      }
+      nav .menu li a:hover::before {
+        width: 100%;
+      }
+
+      nav .mobile-menu ul {
+        display: none;
+        list-style-type: none;
+        position: absolute;
+        z-index: 1001;
+        left: -100px;
+      }
+      nav .mobile-menu {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+      nav .mobile-menu li {
+        margin-bottom: 8px;
+        position: relative;
+      }
+      nav .mobile-menu li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: black;
+        display: block;
+        background-color: gray;
+      }
+      .slide {
+        width: 100%;
+        height: 300px;
+        background-color: lightgray;
+        margin-top: 4px;
+      }
+      #mobile {
+        display: none;
+        color: black;
+        text-decoration: none;
+      }
+      .posts {
+            width: 100%;
+            height: 500px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;  
+        }
+        .post {
+            width: 30%;
+            background-color: gray;
+        }
+        .inpost {
+            width: 100%;
+            height: 104%;
+        }
+      @media screen and (max-width: 576px) {
+        #mobile {
+          display: block;
+        }
+        nav .menu {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo"></div>
+      <ul class="mobile-menu">
+        <li>
+          <a id="mobile" href="#"><i class="bx bx-menu bx-lg"></i></a>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="slide"></div>
+    <script src="jquery-3.6.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#mobile").hover(
+          function () {
+            $("nav .mobile-menu ul").stop().slideDown("slow");
+          },
+          function () {
+            $("nav .mobile-menu ul").stop().slideUp("slow");
+          }
+        );
+      });
+    </script>
+      <div class="posts">
+        <div class="post">
+            <div class="inpost"></div>
+        </div>
+        <div class="post">
+            <div class="inpost"></div>
+        </div>
+        <div class="post">
+            <div class="inpost"></div>
+        </div>
+
+
+    </div>
+  </body>
+</html>
